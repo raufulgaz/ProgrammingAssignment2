@@ -1,9 +1,9 @@
 ## R Programming - Assignment 2
 ## this R script contains two functions
-## "makeCacheMatrix" that creates a cacheable matrix 
-## "cacheSolve" that inverts a matrix
+## "makeCacheMatrix" create a cacheable matrix 
+## "cacheSolve"      inverts a matrix
 
-## makeCacheMatrix function
+## "makeCacheMatrix" function
 ## 'x' is the matrix to be cached.
 ## return a list of four functions:
 ## - set: overwrite the matrix
@@ -34,20 +34,20 @@ makeCacheMatrix <- function(x = matrix()) {
 
 ## cacheSolve function
 ## inverts a matrix. 
-## if a cached solution is found, it is returned; 
-## otherwise, an inverse is calculated, cached, and returned.
+## if        a cached solution is found, it is returned; 
+## otherwise calculate, cache and return inverse matrix
 
 cacheSolve <- function(x, ...) {
   # if cached inverse exists, return it
   if(!is.null(x$getinv())){
-    message("returning cached solution.")
+    message("return cache solution.")
     x$getinv()
   }
   # otherwise, solve and cache new inverse
   else {
-    message("cached solution not found ... new solution...")
+    message("cache solution not found ... new solution...")
     x$setinv(solve(x$get()))
-    message("returning cached solution.")
+    message("return cache solution.")
     x$getinv()
   } 
   ## Return a matrix that is the inverse of 'x'
